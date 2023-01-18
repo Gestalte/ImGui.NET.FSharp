@@ -61,6 +61,32 @@ module Gui =
         if (ImGui.Combo(label, &currentItem.contents, items, itemCount, popupMaxHeightInItems)) then 
             onClick currentItem.Value
 
+    // TODO: Because of the naming convention: SliderInt, SliderInt1, SliderInt2 etc. For now I'm adding _# to the overloads for now.
+
+    let SliderInt label (v: int ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderInt(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderInt_1 label (v: int ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderInt(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderInt_2 label (v: int ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderInt(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
+    let SliderInt2 label (v: int ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderInt2(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderInt2_1 label (v: int ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderInt2(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderInt2_2 label (v: int ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderInt2(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
     let text value = fun () -> 
         ImGui.Text(value)
 

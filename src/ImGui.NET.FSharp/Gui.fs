@@ -123,6 +123,10 @@ module Gui =
         if (ImGui.VSliderInt(label, size, &v.contents, vMin, vMax, format, flags)) then
             onChange v.Value
 
+    let SliderAngle label (vRad: float32 ref) onChange = fun () ->
+        if (ImGui.SliderAngle(label, &vRad.contents)) then
+            onChange vRad.Value
+
     let text value = fun () -> 
         ImGui.Text(value)
 

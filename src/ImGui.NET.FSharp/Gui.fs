@@ -99,6 +99,18 @@ module Gui =
         if (ImGui.SliderInt3(label, &v.contents, vMin, vMax, format, flags)) then
             onChange v.Value
 
+    let SliderInt4 label (v: int ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderInt4(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderInt4_1 label (v: int ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderInt4(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderInt4_2 label (v: int ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderInt4(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
     let text value = fun () -> 
         ImGui.Text(value)
 

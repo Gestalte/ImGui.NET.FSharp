@@ -43,6 +43,24 @@ module Gui =
         if (ImGui.Checkbox(label, &var.contents)) then
             onClick var.Value
 
+    let combobox label (currentItem: int ref) itemsSeparatedByZeroes onClick = fun () -> // NOTE: I don't know how itemsSeparatedByZeroes is supposed to work. Just adding 0s does nothing, same for using \0
+        if (ImGui.Combo(label, &currentItem.contents , itemsSeparatedByZeroes)) then 
+            onClick currentItem.Value
+
+    let combobox1 label (currentItem: int ref) (items: string array) onClick = fun () ->
+        let itemCount = items |> Array.length
+        if (ImGui.Combo(label, &currentItem.contents, items, itemCount)) then 
+            onClick currentItem.Value
+
+    let combobox2 label (currentItem: int ref) (itemsSeparatedByZeroes: string) (popupMaxHeightInItems: int) onClick = fun () -> // NOTE: I don't know how itemsSeparatedByZeroes is supposed to work. Just adding 0s does nothing, same for using \0
+        if (ImGui.Combo(label, &currentItem.contents, itemsSeparatedByZeroes, popupMaxHeightInItems)) then 
+            onClick currentItem.Value
+
+    let combobox3 label (currentItem: int ref) (items: string array) (popupMaxHeightInItems: int) onClick = fun () ->
+        let itemCount = items |> Array.length
+        if (ImGui.Combo(label, &currentItem.contents, items, itemCount, popupMaxHeightInItems)) then 
+            onClick currentItem.Value
+
     let text value = fun () -> 
         ImGui.Text(value)
 

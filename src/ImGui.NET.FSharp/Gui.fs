@@ -127,6 +127,66 @@ module Gui =
         if (ImGui.SliderAngle(label, &vRad.contents)) then
             onChange vRad.Value
 
+    let SliderFloat label (v: float32 ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderFloat(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderFloat_1 label (v: float32 ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderFloat(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderFloat_2 label (v: float32 ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderFloat(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
+    let SliderFloat2 label (v: Vector2 ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderFloat2(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderFloat2_1 label (v: Vector2 ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderFloat2(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderFloat2_2 label (v: Vector2 ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderFloat2(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
+    let SliderFloat3 label (v: Vector3 ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderFloat3(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderFloat3_1 label (v: Vector3 ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderFloat3(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderFloat3_2 label (v: Vector3 ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderFloat3(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
+    let SliderFloat4 label (v: Vector4 ref) vMin vMax onChange = fun () ->
+        if (ImGui.SliderFloat4(label, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let SliderFloat4_1 label (v: Vector4 ref) vMin vMax format onChange = fun () ->
+        if (ImGui.SliderFloat4(label, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let SliderFloat4_2 label (v: Vector4 ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.SliderFloat4(label, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
+    let VSliderFloat label size (v: float32 ref) vMin vMax onChange = fun () ->
+        if (ImGui.VSliderFloat(label, size, &v.contents, vMin, vMax)) then
+            onChange v.Value
+
+    let VSliderFloat_1 label size (v: float32 ref) vMin vMax format onChange = fun () ->
+        if (ImGui.VSliderFloat(label, size, &v.contents, vMin, vMax, format)) then
+            onChange v.Value
+
+    let VSliderFloat_2 label size (v: float32 ref) vMin vMax format flags onChange = fun () ->
+        if (ImGui.VSliderFloat(label, size, &v.contents, vMin, vMax, format, flags)) then
+            onChange v.Value
+
     let text value = fun () -> 
         ImGui.Text(value)
 
